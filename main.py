@@ -32,6 +32,9 @@ def fetch_weather():
     refresh_button.config(state="normal")
 
 def update_weather():
+    for i, city in enumerate(cities):
+        labels[i].config(text=f"{city}: ?")
+
     refresh_button.config(state="disabled")
     loading_label.pack(pady=10)
     threading.Thread(target=fetch_weather).start()
